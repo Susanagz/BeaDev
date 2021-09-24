@@ -10,7 +10,11 @@
 *.userosscache
 *.sln.docstates
 startup.cs
+<<<<<<< HEAD
 appsetttings.json
+=======
+appsettings.json
+>>>>>>> 2a94379967b8141268a37cd6c24bd435bf424e18
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
