@@ -8,7 +8,7 @@
     >
       <!-- <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon> -->
       <v-toolbar-title style="width: 300px" class="ml-0 pl-4">
-        <span class="hidden-sm-and-down">BeaDev</span>
+        <span class="hidden-sm-and-down">BeaDoc</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-tooltip right color="white">
