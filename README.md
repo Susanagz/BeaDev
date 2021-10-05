@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 
 # How to run this project
 
@@ -13,9 +12,3 @@ Notice:
 *The DB connection string must be edited along with the CQRS policy. <br />
 *Go to "Model" folder into the "Seed" class to get the user credentials <br />
 *Create an empty DB called "Toka" 
-
-
-
-=======
-# BeaDev
->>>>>>> 99d55d88f8a2df312ccd47784270405e9920b4bd

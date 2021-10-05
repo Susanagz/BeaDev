@@ -8,7 +8,7 @@
 							<v-container fluid color="">
 								<v-row>
 									<v-col cols="12" class="text-center">
-										<h3 class="headline primary--text">TOKA</h3>
+										<h3 class="headline primary--text">BeaDev</h3>
 										<h4 class="subtitle-1 mb-3">Hello</h4>
 									</v-col>
 								</v-row>
