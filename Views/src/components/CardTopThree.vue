@@ -3,13 +3,13 @@
 
   <v-card shaped :elevation=4 loading dark max-width="260">
     <v-img
-      src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
+      src="https://1.bp.blogspot.com/-G_oYeB6RQwc/YV992v5A7bI/AAAAAAAAAg8/jBWfbcWNNqMI1RmQr02qVsoBZtzty-viwCNcBGAsYHQ/s1600/Lenguaje_programacion.png"
       height="180px"
     ></v-img>
 
-    <v-card-title> Top western road trips </v-card-title>
+    <v-card-title> ¿Que es BeaDev? </v-card-title>
 
-    <v-card-subtitle> 1,000 miles of wonder </v-card-subtitle>
+    <v-card-subtitle>------</v-card-subtitle>
 
     <v-card-actions>
 
@@ -25,11 +25,7 @@
         <v-divider></v-divider>
 
         <v-card-text>
-          I'm a thing. But, like most politicians, he promised more than he
-          could deliver. You won't have time for sleeping, soldier, not with all
-          the bed making you'll be doing. Then we'll go with that data file!
-          Hey, you add a one and two zeros to that or we walk! You're going to
-          do his laundry? I've got to find a way to escape.
+         hgfhfhgs
         </v-card-text>
       </div>
     </v-expand-transition>
