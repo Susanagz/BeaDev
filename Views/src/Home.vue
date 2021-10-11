@@ -12,7 +12,7 @@
       <v-spacer></v-spacer>
       <v-tooltip top>
         <template v-slot:activator="{ on, attrs }">
-          <v-btn sm-small icon v-bind="attrs" v-on="on" @click="LogOut()">
+          <v-btn v-bind="attrs" v-on="on" @click="LogOut()">
             <v-icon color="white"> logout </v-icon>
           </v-btn>
         </template>
@@ -27,14 +27,27 @@
       </v-container>
       <v-container fluid>
         <v-card>
-          <v-row dense align="center" class="mb-6">
-            <v-spacer> </v-spacer>
-            <CardTopThree class="mx-6 mt-10" />
-            <CardTopThree class="mx-6" />
-            <CardTopThree class="mx-6 mt-14" />
-            <v-spacer> </v-spacer>
-          </v-row>
-          
+          <v-container>
+            <v-row justify="center" class="mb-6">
+              <v-col md="3">
+                <CardTopThree />
+              </v-col>
+              <v-col md="3">
+                <CardTopThree />
+              </v-col>
+              <v-col md="3  ">
+                <CardTopThree />
+              </v-col>
+            </v-row>
+          </v-container>
+        </v-card>
+      </v-container>
+
+      <v-container fluid>
+        <v-card>
+          <v-container>
+            <Chart />
+          </v-container>
         </v-card>
       </v-container>
     </v-main>
@@ -56,10 +69,11 @@
 <script>
 import Carousel from "@/components/Carousel";
 import CardTopThree from "@/components/CardTopThree.vue";
+import Chart from "@/components/Chart.vue";
 
 export default {
   name: "Home",
-  components: { Carousel, CardTopThree },
+  components: { Carousel, CardTopThree, Chart },
   data: () => ({}),
 
   methods: {

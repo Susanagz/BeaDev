@@ -12,8 +12,8 @@
           <v-container fluid>
             <v-row dense>
               <v-col
-                v-for="card in slide[0].CardData"
-                :key="card.title"
+                v-for="(card, i) in slide[0].CardData"
+                :key="i"
                 :cols="card.flex"
               >
                 <v-card>
