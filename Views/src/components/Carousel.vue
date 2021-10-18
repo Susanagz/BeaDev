@@ -24,8 +24,16 @@
                           What is BeaDev?
                         </v-card>
                         <v-card-subtitle
-                          class="black--text mt-4"
-                          v-text="card.title"
+                          :class="
+                            !$vuetify.breakpoint.smAndDown
+                              ? 'subtitle-1 black--text'
+                              : 'black--text'
+                          "
+                          v-text="
+                            $vuetify.breakpoint.smAndDown
+                              ? card.minTitle
+                              : card.title
+                          "
                         ></v-card-subtitle>
                       </v-col>
                     </v-row>
@@ -60,7 +68,9 @@ export default {
             },
             {
               title:
-                "Is a website that will encourage you to take the next step by learning the trendiest programming language based in job offers statistics  ",
+                "Is a website that will encourage you to take the next step by learning the trendiest programming language based in job offers statistics.",
+              minTitle:
+                "Is a website that will encourage you to learn the trendiest programming language.",
               src: "",
               flex: 5,
             },

@@ -1,13 +1,8 @@
 <template>
   <v-app id="inspire">
-    <v-app-bar
-      :clipped-left="$vuetify.breakpoint.lgAndUp"
-      app
-      color="dark accent-1"
-      dark
-    >
+    <v-app-bar app color="dark accent-1" dark>
       <v-toolbar-title style="width: 300px" class="ml-0 pl-4">
-        <span class="hidden-sm-and-down">BeaDev</span>
+        <span>BeaDev</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <!-- <v-tooltip top>
@@ -25,7 +20,7 @@
           <Carousel />
         </v-card>
       </v-container>
-      
+
       <v-container fluid>
         <v-card>
           <v-container>
@@ -50,7 +45,10 @@
                   <CardTopThree v-bind:color="topThreeColors[2]" />
                 </v-col>
                 <v-col order="last" md="3">
-                  <CardTopThree class="mt-14" v-bind:color="topThreeColors[0]" />
+                  <CardTopThree
+                    class="mt-14"
+                    v-bind:color="topThreeColors[0]"
+                  />
                 </v-col>
               </template>
             </v-row>
