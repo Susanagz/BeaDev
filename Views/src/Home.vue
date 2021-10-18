@@ -10,14 +10,14 @@
         <span class="hidden-sm-and-down">BeaDev</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-tooltip top>
+      <!-- <v-tooltip top>
         <template v-slot:activator="{ on, attrs }">
           <v-btn v-bind="attrs" v-on="on" @click="LogOut()">
             <v-icon color="white"> logout </v-icon>
           </v-btn>
         </template>
         <span>Log Out</span>
-      </v-tooltip>
+      </v-tooltip> -->
     </v-app-bar>
     <v-main>
       <v-container fluid>
@@ -25,19 +25,34 @@
           <Carousel />
         </v-card>
       </v-container>
+      
       <v-container fluid>
         <v-card>
           <v-container>
+            <p>Today Top 3</p>
             <v-row justify="center" class="mb-6">
-              <v-col md="3">
-                <CardTopThree />
-              </v-col>
-              <v-col md="3">
-                <CardTopThree />
-              </v-col>
-              <v-col md="3  ">
-                <CardTopThree />
-              </v-col>
+              <div v-if="$vuetify.breakpoint.smAndDown">
+                <v-col md="3">
+                  <CardTopThree v-bind:color="topThreeColors[2]" />
+                </v-col>
+                <v-col md="3">
+                  <CardTopThree class="mt-2" v-bind:color="topThreeColors[1]" />
+                </v-col>
+                <v-col md="3">
+                  <CardTopThree class="mt-2" v-bind:color="topThreeColors[0]" />
+                </v-col>
+              </div>
+              <template v-else>
+                <v-col order="first" md="3">
+                  <CardTopThree class="mt-9" v-bind:color="topThreeColors[1]" />
+                </v-col>
+                <v-col md="3">
+                  <CardTopThree v-bind:color="topThreeColors[2]" />
+                </v-col>
+                <v-col order="last" md="3">
+                  <CardTopThree class="mt-14" v-bind:color="topThreeColors[0]" />
+                </v-col>
+              </template>
             </v-row>
           </v-container>
         </v-card>
@@ -46,7 +61,10 @@
       <v-container fluid>
         <v-card>
           <v-container>
-            <Chart />
+            Top 3 Programming Languages according to projections
+            <v-row justify="center">
+              <v-col md=""> <ProChart /> </v-col>
+            </v-row>
           </v-container>
         </v-card>
       </v-container>
@@ -69,19 +87,15 @@
 <script>
 import Carousel from "@/components/Carousel";
 import CardTopThree from "@/components/CardTopThree.vue";
-import Chart from "@/components/Chart.vue";
+import ProChart from "@/components/ProChart.vue";
 
 export default {
   name: "Home",
-  components: { Carousel, CardTopThree, Chart },
-  data: () => ({}),
+  components: { Carousel, CardTopThree, ProChart },
+  data: () => ({
+    topThreeColors: ["#b87333", "#c0c0c0", "#ffd700"],
+  }),
 
-  methods: {
-    LogOut: function () {
-      localStorage.removeItem("jwt");
-      localStorage.removeItem("user");
-      this.$router.push({ name: "Login" });
-    },
-  },
+  methods: {},
 };
 </script>
