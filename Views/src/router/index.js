@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../Home.vue'
-import Login from '../Login.vue'
+//import Login from '../Login.vue'
 
 Vue.use(VueRouter)
 
@@ -11,11 +11,11 @@ const routes = [
     name: 'Home',
     component: Home,
   },
-  {
+  /*{
     path: '/Login',
     name: 'Login',
     component: Login,
-  }
+  }*/
 ]
 
 const router = new VueRouter({
@@ -24,13 +24,13 @@ const router = new VueRouter({
   routes
 })
 
-router.beforeEach((to, from, next) => {
+/*router.beforeEach((to, from, next) => {
   if (to.name !== 'Login' && localStorage.getItem('jwt') == null)
     next({ name: 'Login' })
   else if (to.name === 'Login' && localStorage.getItem('jwt') !== null)
     next({ name: 'Home' })
   else
     next()
-})
+})*/
 
 export default router
