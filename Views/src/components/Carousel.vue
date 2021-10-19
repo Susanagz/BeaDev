@@ -2,7 +2,7 @@
   <v-carousel
     :continuous="true"
     :cycle="cycle"
-    :hide-delimiters = "true"
+    :hide-delimiters="true"
     height="300"
     hide-delimiter-background
   >
@@ -16,16 +16,31 @@
                 :key="i"
                 :cols="card.flex"
               >
-                <v-card>
-                  <v-img
-                    :src="card.src"
-                    class="white--text align-end"
-                    gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
-                    height="250px"
-                  >
-                    <v-card-title v-text="card.title"></v-card-title>
-                  </v-img>
-                  <v-card-actions> </v-card-actions>
+                <v-card :color="slide[0].Color" height="270px">
+                  <template v-if="!card.src">
+                    <v-row>
+                      <v-col align-self="center">
+                        <v-card class="pa-2" outlined tile>
+                          What is BeaDev?
+                        </v-card>
+                        <v-card-subtitle
+                          :class="
+                            !$vuetify.breakpoint.smAndDown
+                              ? 'subtitle-1 black--text'
+                              : 'black--text'
+                          "
+                          v-text="
+                            $vuetify.breakpoint.smAndDown
+                              ? card.minTitle
+                              : card.title
+                          "
+                        ></v-card-subtitle>
+                      </v-col>
+                    </v-row>
+                  </template>
+                  <template v-else>
+                    <v-img :src="card.src" class="align-end" height="270px" />
+                  </template>
                 </v-card>
               </v-col>
             </v-row>
@@ -52,8 +67,11 @@ export default {
               flex: 7,
             },
             {
-              title: " ",
-              src: "https://1.bp.blogspot.com/-HTDrUAN2FLo/YWHnlLRFeNI/AAAAAAAAAjs/nh3FIl1y2YYPA0XXefJQKf2XS7dLgaDLgCNcBGAsYHQ/s1600/1.png",
+              title:
+                "Is a website that will encourage you to take the next step by learning the trendiest programming language based in job offers statistics.",
+              minTitle:
+                "Is a website that will encourage you to learn the trendiest programming language.",
+              src: "",
               flex: 5,
             },
           ],
@@ -61,7 +79,7 @@ export default {
       ],
       [
         {
-          Color: "white",
+          Color: "dark",
           CardData: [
             {
               title: " ",
@@ -78,7 +96,7 @@ export default {
       ],
       [
         {
-          Color: "white",
+          Color: "dark",
           CardData: [
             {
               title: " ",

@@ -1,5 +1,14 @@
 <template>
-  <v-card class="pa-2" shaped :elevation="4" max-width="260">
+  <v-card
+    darkclass="pa-2"
+    shaped
+    :elevation="5"
+    :max-width="$vuetify.breakpoint.smAndDown ? 290 : 260"
+    :style="'border: 2px solid' + color"
+  >
+    <v-card-text>
+      <div>#1</div>     
+    </v-card-text>
     <v-img
       src="https://1.bp.blogspot.com/-G_oYeB6RQwc/YV992v5A7bI/AAAAAAAAAg8/jBWfbcWNNqMI1RmQr02qVsoBZtzty-viwCNcBGAsYHQ/s1600/Lenguaje_programacion.png"
       height="180px"
@@ -24,8 +33,11 @@
 <script>
 export default {
   name: "CardTopThree",
+  props: ["color", "positionData"],
+
   data: () => ({
     show: false,
+    topPosition: 2,
   }),
 };
 </script>
