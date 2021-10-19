@@ -79,16 +79,19 @@ export default {
       ],
       [
         {
-          Color: "dark",
+          Color: "white",
           CardData: [
             {
-              title: " ",
-              src: "https://1.bp.blogspot.com/-zM0ldMwS3ts/YWHnqwIj3sI/AAAAAAAAAjw/Ui_8fDLAWzwP8daHCqpYkQYNDvKBiatkQCNcBGAsYHQ/s1600/2.png",
+              title:
+                "You can check the top 3 of the programming languages ​​with the greatest demand in the Jalisco labor market.",
+              minTitle:
+                " dsadsad",
+              src: "",
               flex: 7,
             },
             {
-              title: " ",
-              src: "https://1.bp.blogspot.com/-VPzXO6fh7Xk/YWHnwL0N99I/AAAAAAAAAj4/6gTwe40xjgwv9EZrVihH31J06YGSESKoACNcBGAsYHQ/s1600/3.png",
+              title: "also You can find the 3 most demanded frameworks along with the average salary that represents learning or mastering these languages",
+              src: "",
               flex: 5,
             },
           ],
@@ -96,16 +99,16 @@ export default {
       ],
       [
         {
-          Color: "dark",
+          Color: "white",
           CardData: [
             {
-              title: " ",
-              src: "https://1.bp.blogspot.com/-9E0P29rMSCk/YWHn29c-wVI/AAAAAAAAAkA/TW667nsKCBM8vTqohHqaLK4keT0tTWhEACNcBGAsYHQ/s1600/4.png",
+              title: "Likewise, you will find estimated projections of 6 months and 1 year about the demand of this languages ​​and frameworks.",
+              src: "",
               flex: 7,
             },
             {
               title: " ",
-              src: "https://1.bp.blogspot.com/-VR0KbTP6wOw/YWHn9CCy1YI/AAAAAAAAAkE/Xz3TYriaSFQ1tp9EpnfMvcQu5MM3yuLTACNcBGAsYHQ/s1600/5.png",
+              src: "",
               flex: 5,
             },
           ],

@@ -24,16 +24,6 @@ const router = new VueRouter({
   routes
 })
 
-<<<<<<< HEAD
-/*router.beforeEach((to, from, next) => {
-  if (to.name !== 'Login' && localStorage.getItem('jwt') == null)
-    next({ name: 'Login' })
-  else if (to.name === 'Login' && localStorage.getItem('jwt') !== null)
-    next({ name: 'Home' })
-  else
-    next()
-})*/
-=======
 // router.beforeEach((to, from, next) => {
 //   // if (to.name !== 'Login' && localStorage.getItem('jwt') == null)
 //   //   next({ name: 'Login' })
@@ -42,6 +32,5 @@ const router = new VueRouter({
 //   // else
 //   //   next()
 // })
->>>>>>> b153090f242a2b1a12277a0d85d8e692ed532705
 
 export default router
