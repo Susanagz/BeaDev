@@ -15,5 +15,9 @@
         "titleBar.inactiveBackground": "#01010199",
         "titleBar.inactiveForeground": "#e7e7e799"
     },
-    "peacock.color": "#010101"
+    "peacock.color": "#010101",
+    "files.exclude": {
+        "**/bin": true,
+        "**/obj": true
+    }
 }
