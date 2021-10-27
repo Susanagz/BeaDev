@@ -21,7 +21,7 @@
                     <v-row>
                       <v-col align-self="center">
                         <v-card class="pa-2" outlined tile>
-                          What is BeaDev?
+                          {{card.header}}
                         </v-card>
                         <v-card-subtitle
                           :class="
@@ -63,50 +63,65 @@ export default {
           CardData: [
             {
               title: " ",
-              src: "https://1.bp.blogspot.com/-Z3PW6kIL1TU/YWHneoDu3TI/AAAAAAAAAjo/_eNdNJ1hlR0Ooibv0cLMLy81xEMR98ffgCNcBGAsYHQ/s1600/6.png",
-              flex: 7,
+              src: "https://1.bp.blogspot.com/-D9q1THjJLIE/YXBa4n4wjOI/AAAAAAAAAmU/KDdoensgP7IF2jZMoVa-TTwg0PxBh6KFACNcBGAsYHQ/s1600/p.png",
+              flex: 5,
             },
             {
-              title:
-                "Is a website that will encourage you to take the next step by learning the trendiest programming language based in job offers statistics.",
-              minTitle:
-                "Is a website that will encourage you to learn the trendiest programming language.",
+              header: "what is beadev?",
+              title: "Is a website that will encourage you to take the next step by learning the trendiest programming language based in job offers statistics.",
+              minTitle:"Is a website that will encourage you to learn the trendiest programming language.",
               src: "",
-              flex: 5,
+              flex: 7,
             },
           ],
         },
       ],
       [
         {
-          Color: "dark",
+          Color: "white",
           CardData: [
             {
-              title: " ",
-              src: "https://1.bp.blogspot.com/-zM0ldMwS3ts/YWHnqwIj3sI/AAAAAAAAAjw/Ui_8fDLAWzwP8daHCqpYkQYNDvKBiatkQCNcBGAsYHQ/s1600/2.png",
-              flex: 7,
+              header: "Programming languages",
+              title:"You can check the top 3 of the programming languages ​​with the greatest demand in the Jalisco labor market.",
+              minTitle:"Top 3 of the programming languages",
+              src: "",
+              flex: 4,
             },
             {
-              title: " ",
-              src: "https://1.bp.blogspot.com/-VPzXO6fh7Xk/YWHnwL0N99I/AAAAAAAAAj4/6gTwe40xjgwv9EZrVihH31J06YGSESKoACNcBGAsYHQ/s1600/3.png",
-              flex: 5,
+              title: "",
+              src: "https://1.bp.blogspot.com/-AE13UPPPmcs/YXBbpZqKc-I/AAAAAAAAAmc/qnM6qDR4Om8kQeOJ9XvKnG0rkSM__XcoACNcBGAsYHQ/s1600/o.png",
+              flex: 4,
+            },
+            {
+              header: "Most in-demand frameworks",
+              title:"You can find the 3 most demanded frameworks along with the average salary that represents learning or mastering these languages.",
+              minTitle:"find the 3 most demanded frameworks",
+              src: "",
+              flex: 4,
             },
           ],
         },
       ],
       [
         {
-          Color: "dark",
+          Color: "white",
           CardData: [
             {
-              title: " ",
-              src: "https://1.bp.blogspot.com/-9E0P29rMSCk/YWHn29c-wVI/AAAAAAAAAkA/TW667nsKCBM8vTqohHqaLK4keT0tTWhEACNcBGAsYHQ/s1600/4.png",
-              flex: 7,
+              title: "",
+              src: "https://1.bp.blogspot.com/-QEM7IUp5h_g/YXBgMRoLpZI/AAAAAAAAAm0/kudWpp4cDc4pConlHqj0WlJcXR5zL3s2QCNcBGAsYHQ/s1600/k.png",
+              flex: 3,
             },
             {
-              title: " ",
-              src: "https://1.bp.blogspot.com/-VR0KbTP6wOw/YWHn9CCy1YI/AAAAAAAAAkE/Xz3TYriaSFQ1tp9EpnfMvcQu5MM3yuLTACNcBGAsYHQ/s1600/5.png",
-              flex: 5,
+              header: "Projections",
+              title: "Likewise, you will find estimated projections of 6 months and 1 year about the demand of this languages ​​and frameworks.",
+              minTitle: "Projections of 6 months and 1 year about the demand of this languages ​​and frameworks",
+              src:"",
+              flex: 6,
+            },
+            {
+              title: "",
+              src: "https://1.bp.blogspot.com/-CeXZg_2lQcY/YXBekhEGo0I/AAAAAAAAAms/Ut_5zIeAOps_d2q269uKVyFaAIv55LPUACNcBGAsYHQ/s1600/g.png",
+              flex: 3,
             },
           ],
         },
