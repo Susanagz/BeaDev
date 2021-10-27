@@ -1,4 +1,4 @@
-using System;
+/* using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -13,7 +13,7 @@ namespace Controller
     [ApiController]
     public class CostumerController : ControllerBase
     {
-        private readonly TokaContext _context;
+        //private readonly TokaContext _context;
         private readonly IMapper _mapper;
         public CostumerController(TokaContext context, IMapper mapper)
         {
@@ -130,4 +130,4 @@ namespace Controller
 
         #endregion
     }
-}
+} */

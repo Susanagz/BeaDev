@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
-using Controller.Security;
+//using Controller.Security;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
@@ -49,10 +49,10 @@ namespace Controller
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Controller", Version = "v1" });
             });
-            services.AddDbContext<TokaContext>(opt =>
+            /*services.AddDbContext<TokaContext>(opt =>
             {
                 opt.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
-            });
+            });*/
             services.AddCors(opt =>
             {
                 opt.AddPolicy("CorsPolicy", policy =>
@@ -62,7 +62,7 @@ namespace Controller
                         //policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://192.168.1.66:8080");
                     });
             });
-            var builder = services.AddIdentityCore<AppUser>();
+            /*var builder = services.AddIdentityCore<AppUser>();
             var identityBuilder = new IdentityBuilder(builder.UserType, builder.Services);
             identityBuilder.AddEntityFrameworkStores<TokaContext>();
             identityBuilder.AddSignInManager<SignInManager<AppUser>>();
@@ -77,7 +77,7 @@ namespace Controller
                         ValidateAudience = false,
                         ValidateIssuer = false
                     });
-            services.AddScoped<JwtGenerator, JwtGenerator>();
+            services.AddScoped<JwtGenerator, JwtGenerator>();*/
 
         }
 

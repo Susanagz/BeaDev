@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Controller.Security;
+//using Controller.Security;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -16,17 +16,17 @@ namespace Controller
     public class UserController : ControllerBase
     {
         //DI at its finest
-        private readonly UserManager<AppUser> _userManager;
-        private readonly SignInManager<AppUser> _signInManager;
-        private readonly JwtGenerator _jwtGenerator;
-        public UserController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, JwtGenerator jwtGenerator)
+        //private readonly UserManager<AppUser> _userManager;
+        //private readonly SignInManager<AppUser> _signInManager;
+        //private readonly JwtGenerator _jwtGenerator;
+        /*public UserController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, JwtGenerator jwtGenerator)
         {
             _jwtGenerator = jwtGenerator;
             _signInManager = signInManager;
             _userManager = userManager;
-        }
+        }*/
 
-        [AllowAnonymous]
+        /*[AllowAnonymous]
         [HttpPost("login")]
         public async Task<ActionResult<UserDTO>> Login(UserDTO userObj)
         {
@@ -55,6 +55,6 @@ namespace Controller
                 return StatusCode(500, ex);
             }
 
-        }
+        }*/
     }
 }

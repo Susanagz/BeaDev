@@ -1,4 +1,4 @@
-using AutoMapper;
+/* using AutoMapper;
 
 namespace Model.DTO
 {
@@ -11,3 +11,4 @@ namespace Model.DTO
         }
     }
 }
+ */

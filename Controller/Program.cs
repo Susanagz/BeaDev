@@ -23,7 +23,7 @@ namespace Controller
             using (var Scope = host.Services.CreateScope())
             {
                 var services = Scope.ServiceProvider;
-                try
+                /*try
                 {
                     var context = services.GetRequiredService<TokaContext>();
                     var userManager = services.GetRequiredService<UserManager<AppUser>>();
@@ -35,7 +35,7 @@ namespace Controller
                     var logger = services.GetRequiredService<ILogger<Program>>();
                     logger.LogError(ex, "An error occured during migration");
 
-                }
+                }*/
             }
             host.Run();
 
