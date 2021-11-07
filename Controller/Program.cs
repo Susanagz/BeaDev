@@ -23,6 +23,8 @@ namespace Controller
             using (var Scope = host.Services.CreateScope())
             {
                 var services = Scope.ServiceProvider;
+                
+                /**/
                 /*try
                 {
                     var context = services.GetRequiredService<TokaContext>();
