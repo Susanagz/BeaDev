@@ -26,7 +26,7 @@ namespace Controller
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup(IConfiguration configuration)        
         {
             Configuration = configuration;
         }
@@ -36,6 +36,7 @@ namespace Controller
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSignalR();
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
@@ -57,9 +58,10 @@ namespace Controller
             {
                 opt.AddPolicy("CorsPolicy", policy =>
                     {
-                        policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://192.168.1.71:8080");
+                        //policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://192.168.1.64:8080");
                         //policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://192.168.100.11:8080");
-                        //policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://192.168.1.66:8080");
+                        //Monsa house IP
+                        policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://192.168.1.71:8080"); 
                     });
             });
             /*var builder = services.AddIdentityCore<AppUser>();
@@ -88,7 +90,7 @@ namespace Controller
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Toka v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "BeaDev v1"));
             }
 
             //app.UseHttpsRedirection();
