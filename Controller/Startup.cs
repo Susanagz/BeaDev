@@ -40,20 +40,23 @@ namespace Controller
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
-            services.AddControllers(opt =>
-            {
-                var policy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
-                opt.Filters.Add(new AuthorizeFilter(policy));
-            });
+            // services.AddControllers(opt =>
+            // {
+            //     var policy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
+            //     opt.Filters.Add(new AuthorizeFilter(policy));
+            // });
+            services.AddControllers();
 
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Controller", Version = "v1" });
             });
-            /*services.AddDbContext<TokaContext>(opt =>
+
+            services.AddDbContext<BeadevContext>(opt =>
             {
                 opt.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
-            });*/
+            });
+
             services.AddCors(opt =>
             {
                 opt.AddPolicy("CorsPolicy", policy =>
