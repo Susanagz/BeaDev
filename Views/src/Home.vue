@@ -5,14 +5,6 @@
         <span>BeaDev</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
-      <!-- <v-tooltip top>
-        <template v-slot:activator="{ on, attrs }">
-          <v-btn v-bind="attrs" v-on="on" @click="LogOut()">
-            <v-icon color="white"> logout </v-icon>
-          </v-btn>
-        </template>
-        <span>Log Out</span>
-      </v-tooltip> -->
     </v-app-bar>
     <v-main>
       <v-container fluid>
@@ -28,26 +20,27 @@
             <v-row justify="center" class="mb-6">
               <div v-if="$vuetify.breakpoint.smAndDown">
                 <v-col md="3">
-                  <CardTopThree v-bind:color="topThreeColors[2]" />
+                  <CardTopThree v-bind:color="topThreeColors[2]" v-bind:language="topThreePL[0]" />
                 </v-col>
                 <v-col md="3">
-                  <CardTopThree class="mt-2" v-bind:color="topThreeColors[1]" />
+                  <CardTopThree class="mt-2" v-bind:color="topThreeColors[1]" v-bind:language="topThreePL[1]"/>
                 </v-col>
                 <v-col md="3">
-                  <CardTopThree class="mt-2" v-bind:color="topThreeColors[0]" />
+                  <CardTopThree class="mt-2" v-bind:color="topThreeColors[0]" v-bind:language="topThreePL[2]"/>
                 </v-col>
               </div>
               <template v-else>
                 <v-col order="first" md="3">
-                  <CardTopThree class="mt-9" v-bind:color="topThreeColors[1]" />
+                  <CardTopThree class="mt-9" v-bind:color="topThreeColors[1]" v-bind:language="topThreePL[1]"/>
                 </v-col>
                 <v-col md="3">
-                  <CardTopThree v-bind:color="topThreeColors[2]" />
+                  <CardTopThree v-bind:color="topThreeColors[2]" v-bind:language="topThreePL[0]"/>
                 </v-col>
                 <v-col order="last" md="3">
                   <CardTopThree
                     class="mt-14"
                     v-bind:color="topThreeColors[0]"
+                    v-bind:language="topThreePL[2]"
                   />
                 </v-col>
               </template>
@@ -86,13 +79,32 @@
 import Carousel from "@/components/Carousel";
 import CardTopThree from "@/components/CardTopThree.vue";
 import ProChart from "@/components/ProChart.vue";
+import { HubConnectionBuilder } from "@aspnet/signalr";
+import axios from "axios";
 
 export default {
   name: "Home",
   components: { Carousel, CardTopThree, ProChart },
   data: () => ({
     topThreeColors: ["#b87333", "#c0c0c0", "#ffd700"],
+    connection: null,
+    topThreePL: [],
   }),
+
+  created() {
+    this.connection = new HubConnectionBuilder()
+      .withUrl(`${axios.defaults.baseURL}ProgrammingLanguages`)
+      .build();
+
+    this.connection
+      .start()
+      .then(() => console.log("connected"))
+      .catch((err) => console.error("Failed to connect with hub", err));
+    // Forward hub events through the event, so we can listen for them in the Vue components
+    this.connection.on("Receive", (programmingLanguage) => {
+      this.topThreePL = programmingLanguage;
+    });
+  },
 
   methods: {},
 };
