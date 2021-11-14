@@ -152,8 +152,6 @@ export default {
     UpdateChart(flag) {
       agent.ProgrammingLanguageChart.list()
         .then((response) => {
-          console.log(response.data);
-
           this.chartOptions = {
             ...this.chartOptions,
             ...{
@@ -161,7 +159,7 @@ export default {
                 categories: !flag
                   ? (this.chartOptions.xaxis.categories = this.Months.slice(
                       0,
-                      6
+                      this.Months / 2
                     ))
                   : (this.chartOptions.xaxis.categories = this.Months),
               },
@@ -193,12 +191,6 @@ export default {
 
   created() {
     this.UpdateChart(0);
-  },
-  computed: {
-    halfMonths: function (test) {
-      // `this` points to the vm instance
-      return test.splice(0, this.Months.length / 2);
-    },
   },
 };
 </script>

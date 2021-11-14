@@ -97,8 +97,7 @@
 import Carousel from "@/components/Carousel";
 import CardTopThree from "@/components/CardTopThree.vue";
 import ProChart from "@/components/ProChart.vue";
-import { HubConnectionBuilder } from "@aspnet/signalr";
-import axios from "axios";
+import { mapState } from "vuex";
 
 export default {
   name: "Home",
@@ -106,34 +105,17 @@ export default {
   data: () => ({
     topThreeColors: ["#b87333", "#c0c0c0", "#ffd700"],
     connection: null,
-    topThreePL: [
-      {
-        position: 0,
-        counter: 0,
-        name: "",
-        salaryRate: 0,
-        topThreeStackDescList: "",
-      },
-    ],
   }),
 
   mounted() {
-
-    
-    this.connection = new HubConnectionBuilder()
-      .withUrl(`${axios.defaults.baseURL}/Hubs/ProgrammingLanguages`)
-      .build();
-
-    this.connection
-      .start()
-      .then(() => console.log("connected"))
-      .catch((err) => console.error("Failed to connect with hub", err));
-    // Forward hub events through the event, so we can listen for them in the Vue components
-    this.connection.on("Receive", (programmingLanguage) => {
-      this.topThreePL = programmingLanguage;
-    });
+    this.ConnectSignalR();
   },
 
-  methods: {},
+  methods: {
+    ConnectSignalR() {
+      this.$store.commit("ConnectSignalR");
+    },
+  },
+  computed: mapState(["topThreePL"]),
 };
 </script>

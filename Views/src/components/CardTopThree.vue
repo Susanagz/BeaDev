@@ -7,20 +7,16 @@
     :style="'border: 2px solid' + color"
   >
     <v-card-text>
-      <div v-if="language"># {{ language.position }}</div>
+      {{ language.position }}
     </v-card-text>
     <v-img
       src="https://1.bp.blogspot.com/-G_oYeB6RQwc/YV992v5A7bI/AAAAAAAAAg8/jBWfbcWNNqMI1RmQr02qVsoBZtzty-viwCNcBGAsYHQ/s1600/Lenguaje_programacion.png"
       height="180px"
     ></v-img>
     <v-card-title>
-      <div v-if="language">
-        {{ language.name }}
-      </div>
+      {{ language.name }}
     </v-card-title>
-    <v-card-subtitle>
-      <div v-if="language">Total positions: {{ language.counter }}</div>
-    </v-card-subtitle>
+    <v-card-subtitle> Total positions: {{ language.counter }} </v-card-subtitle>
     <v-card-actions>
       <v-spacer></v-spacer>
       <v-btn icon @click="show = !show">
@@ -31,14 +27,10 @@
       <div v-show="show">
         <v-divider></v-divider>
         <v-card-text>
-          <div v-if="language">
-            Salary Rate: {{ language.salaryRate.toFixed(2) }}
-          </div>
+          Salary Rate: {{ language.salaryRate.toFixed(2) }}
         </v-card-text>
         <v-card-text>
-          <div v-if="language">
-            Common job desc: {{ language.topThreeStackDescList }}
-          </div>
+          Common job desc: {{ language.topThreeStackDescList }}
         </v-card-text>
       </div>
     </v-expand-transition>
@@ -46,28 +38,13 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
-
 export default {
   name: "CardTopThree",
   props: ["color", "language"],
-
-  computed: mapState(["topThreePL"]),
 
   data: () => ({
     show: false,
     topPosition: 2,
   }),
-
-  methods: {
-    ConnectSignalR() {
-      //this.$store.commit("ConnectSignalR");
-      //console.log(this.$store.state.topThreePL);
-    },
-  },
-
-  created() {
-    this.ConnectSignalR();
-  },
 };
 </script>
