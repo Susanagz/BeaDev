@@ -6,6 +6,7 @@
       :options="chartOptions"
       :series="series"
       dropShadow="true"
+      load
     ></apexchart>
 
     <v-row
@@ -13,11 +14,11 @@
       :justify="$vuetify.breakpoint.smAndDown ? 'center' : 'end'"
       class="mt-7"
     >
-      <v-btn tile color="white" class="mx-3">
+      <v-btn tile color="white" class="mx-3" @click="UpdateChart(0)">
         <v-icon left> date_range </v-icon>
         6 Months
       </v-btn>
-      <v-btn tile color="white">
+      <v-btn tile color="white" @click="UpdateChart(1)">
         <v-icon left> date_range </v-icon>
         1 Year
       </v-btn>
@@ -26,6 +27,8 @@
 </template>
 
 <script>
+import agent from "@/api/agent";
+
 export default {
   name: "ProChart",
   data: function () {
@@ -103,29 +106,99 @@ export default {
           shared: false,
         },
         xaxis: {
-          categories: ["January", "February", "March", "April", "May", "June"],
+          categories: [],
         },
         yaxis: {
           title: {
             text: "Job Vacancies",
           },
         },
+        noData: {
+          text: "Loading...",
+        },
       },
       series: [
         {
           name: "C#",
-          data: [30, 40, 35, 50, 49, 90],
+          data: [],
         },
         {
           name: "Python",
-          data: [20, 10, 25, 40, 69, 30],
+          data: [],
         },
         {
           name: "JavaScript",
-          data: [15, 19, 65, 20, 39, 70],
+          data: [],
         },
       ],
+      Months: [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "Octuber",
+        "Nomvember",
+        "Dicember",
+      ],
     };
+  },
+
+  methods: {
+    UpdateChart(flag) {
+      agent.ProgrammingLanguageChart.list()
+        .then((response) => {
+          console.log(response.data);
+
+          this.chartOptions = {
+            ...this.chartOptions,
+            ...{
+              xaxis: {
+                categories: !flag
+                  ? (this.chartOptions.xaxis.categories = this.Months.slice(
+                      0,
+                      6
+                    ))
+                  : (this.chartOptions.xaxis.categories = this.Months),
+              },
+            },
+          };
+
+          this.series[0].data = !flag
+            ? response.data.a01
+                .map((a) => a.totalOffers)
+                .splice(0, this.Months.length / 2)
+            : response.data.a01.map((a) => a.totalOffers);
+
+          this.series[1].data = !flag
+            ? response.data.a02
+                .map((a) => a.totalOffers)
+                .splice(0, this.Months.length / 2)
+            : response.data.a02.map((a) => a.totalOffers);
+
+          this.series[2].data = !flag
+            ? response.data.a03
+                .map((a) => a.totalOffers)
+                .splice(0, this.Months.length / 2)
+            : response.data.a03.map((a) => a.totalOffers);
+        })
+        .catch(() => console.error())
+        .finally(() => (this.requestStatus = false));
+    },
+  },
+
+  created() {
+    this.UpdateChart(0);
+  },
+  computed: {
+    halfMonths: function (test) {
+      // `this` points to the vm instance
+      return test.splice(0, this.Months.length / 2);
+    },
   },
 };
 </script>

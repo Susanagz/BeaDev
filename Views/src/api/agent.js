@@ -103,8 +103,8 @@ const Users = {
     logIn: (user) => requests.post(`/User/login`, user)
 }
 
-const Costumers = {
-    list: () => requests.get('/Costumer'),
+const ProgrammingLanguageChart = {
+    list: () => requests.get('/api/ProgrammingLanguageChart'),
     details: (id) => requests.get(`/Costumer/${id}`),
     create: (costumer) => requests.post('/Costumer', costumer),
     update: (costumer) => requests.put(`/Costumer/${costumer.id}`, costumer),
@@ -113,5 +113,5 @@ const Costumers = {
 
 export default {
     Users,
-    Costumers
+    ProgrammingLanguageChart
 }

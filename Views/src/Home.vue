@@ -20,21 +20,39 @@
             <v-row justify="center" class="mb-6">
               <div v-if="$vuetify.breakpoint.smAndDown">
                 <v-col md="3">
-                  <CardTopThree v-bind:color="topThreeColors[2]" v-bind:language="topThreePL[0]" />
+                  <CardTopThree
+                    v-bind:color="topThreeColors[2]"
+                    v-bind:language="topThreePL[0]"
+                  />
                 </v-col>
                 <v-col md="3">
-                  <CardTopThree class="mt-2" v-bind:color="topThreeColors[1]" v-bind:language="topThreePL[1]"/>
+                  <CardTopThree
+                    class="mt-2"
+                    v-bind:color="topThreeColors[1]"
+                    v-bind:language="topThreePL[1]"
+                  />
                 </v-col>
                 <v-col md="3">
-                  <CardTopThree class="mt-2" v-bind:color="topThreeColors[0]" v-bind:language="topThreePL[2]"/>
+                  <CardTopThree
+                    class="mt-2"
+                    v-bind:color="topThreeColors[0]"
+                    v-bind:language="topThreePL[2]"
+                  />
                 </v-col>
               </div>
               <template v-else>
                 <v-col order="first" md="3">
-                  <CardTopThree class="mt-9" v-bind:color="topThreeColors[1]" v-bind:language="topThreePL[1]"/>
+                  <CardTopThree
+                    class="mt-9"
+                    v-bind:color="topThreeColors[1]"
+                    v-bind:language="topThreePL[1]"
+                  />
                 </v-col>
                 <v-col md="3">
-                  <CardTopThree v-bind:color="topThreeColors[2]" v-bind:language="topThreePL[0]"/>
+                  <CardTopThree
+                    v-bind:color="topThreeColors[2]"
+                    v-bind:language="topThreePL[0]"
+                  />
                 </v-col>
                 <v-col order="last" md="3">
                   <CardTopThree
@@ -88,12 +106,22 @@ export default {
   data: () => ({
     topThreeColors: ["#b87333", "#c0c0c0", "#ffd700"],
     connection: null,
-    topThreePL: [],
+    topThreePL: [
+      {
+        position: 0,
+        counter: 0,
+        name: "",
+        salaryRate: 0,
+        topThreeStackDescList: "",
+      },
+    ],
   }),
 
-  created() {
+  mounted() {
+
+    
     this.connection = new HubConnectionBuilder()
-      .withUrl(`${axios.defaults.baseURL}ProgrammingLanguages`)
+      .withUrl(`${axios.defaults.baseURL}/Hubs/ProgrammingLanguages`)
       .build();
 
     this.connection
