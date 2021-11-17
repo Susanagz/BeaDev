@@ -86,10 +86,11 @@ namespace Model
                     .HasMaxLength(100)
                     .IsUnicode(false);
 
-                entity.Property(e => e.AxisY)
-                    .IsRequired()
-                    .HasMaxLength(150)
-                    .IsUnicode(false);
+                entity.Property(e => e.MonthID)
+                    .IsRequired();
+
+                    entity.Property(e => e.ProgrammLangID)
+                    .IsRequired();
             });
 
             OnModelCreatingPartial(modelBuilder);

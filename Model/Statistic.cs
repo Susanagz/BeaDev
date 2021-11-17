@@ -9,6 +9,7 @@ namespace Model
     {
         public string Id { get; set; }
         public int TotalOffers { get; set; }
-        public string AxisY { get; set; }
+        public int MonthID { get; set; }
+        public int ProgrammLangID { get; set; }
     }
 }

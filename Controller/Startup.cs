@@ -59,7 +59,7 @@ namespace Controller
             {
                 opt.AddPolicy("CorsPolicy", policy =>
                     {
-                        policy.AllowAnyHeader().AllowAnyMethod().AllowCredentials().WithOrigins("http://192.168.100.11:8080");
+                        policy.AllowAnyHeader().AllowAnyMethod().AllowCredentials().WithOrigins("http://192.168.1.65:8080");
                     });
             });
         }
@@ -71,7 +71,7 @@ namespace Controller
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "BeaDev v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "BeaDev beta v2"));
             }
 
             //app.UseHttpsRedirection();
@@ -87,7 +87,7 @@ namespace Controller
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
-                endpoints.MapHub<ProgrammingLanguagesHub>("/ProgrammingLanguages");
+                endpoints.MapHub<ProgrammingLanguagesHub>("Hubs/ProgrammingLanguages");
             });
         }
     }
